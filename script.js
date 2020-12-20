@@ -60,5 +60,28 @@ function loadSong(song) {
   image.src = `img/${song.name}.jpg`;
 }
 
+// Current Song
+let songIndex = 0;
+
+// Prev Song
+function prevSong() {
+  songIndex--;
+  console.log(songIndex);
+  loadSong(songs[songIndex]);
+  playSong();
+}
+
+// Next Song
+function nextSong() {
+  songIndex++;
+  console.log(songIndex);
+  loadSong(songs[songIndex]);
+  playSong();
+}
+
 //  On load - Selct First Song
-loadSong(songs[1]);
+loadSong(songs[songIndex]);
+
+// Event Listeners
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
