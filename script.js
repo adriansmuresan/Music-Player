@@ -124,7 +124,7 @@ function updateProgressBar(e) {
 
 // Set progress Bar so we can click and jump on the progress bar
 function setProgressBar(e) {
-  console.log(e);
+
   // Gets the width of our progress bar
   const width = this.clientWidth;
   // Gets the click location using the offsetX attribute
@@ -138,5 +138,6 @@ function setProgressBar(e) {
 // Event Listeners
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
+music.addEventListener('ended', nextSong);
 music.addEventListener('timeupdate', updateProgressBar);
 progressContainer.addEventListener('click', setProgressBar);
