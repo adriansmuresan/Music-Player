@@ -118,12 +118,25 @@ function updateProgressBar(e) {
       currentSeconds = `0${currentSeconds}`;
     }
     currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
-    
+
   }
+}
+
+// Set progress Bar so we can click and jump on the progress bar
+function setProgressBar(e) {
+  console.log(e);
+  // Gets the width of our progress bar
+  const width = this.clientWidth;
+  // Gets the click location using the offsetX attribute
+  const clickX = e.offsetX;
+  // Deconstructs and sets the duration
+  const { duration } = music;
+  // Calculates and sets the current time on the music
+  music.currentTime = ((clickX / width) * duration);
 }
 
 // Event Listeners
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
-
 music.addEventListener('timeupdate', updateProgressBar);
+progressContainer.addEventListener('click', setProgressBar);
